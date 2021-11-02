@@ -1,10 +1,11 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 
-export const access = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.params);
+const access = (req: Request, res: Response) => {
   res.json({
     id: 1,
-    userId: 10,
+    userId: Number(req.params.id),
     createdAt: new Date(),
   })
 }
+
+export { access }

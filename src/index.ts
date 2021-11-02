@@ -1,11 +1,18 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { connector } from "swagger-routes-express";
 import swaggerUi from "swagger-ui-express";
-import { schema, controllers } from "./makeSchema";
+import { schema, controllers, middleware } from "./makeSchema";
 
 const port = process.env.PORT || 3001;
 
-const connect = connector(controllers, schema);
+const onCreateRoute = (method: string, descriptor: any) => {
+  const [path, ...handlers] = descriptor
+  console.log(method.toUpperCase(), path, handlers.map((item: Function) => item.name))
+}
+
+const connect = connector(controllers, schema, {
+  onCreateRoute, middleware
+});
 const app = express();
 connect(app);
 

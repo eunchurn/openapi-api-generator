@@ -1,10 +1,10 @@
 import { OpenAPIV3 } from "openapi-types";
-import { info, servers, paths, components, controllers } from "./schema";
+import { info, servers, paths, components, controllers, middleware } from "./schema";
 import fs from "fs";
 import path from "path";
 import { dump } from "js-yaml";
 
-export { controllers }
+export { controllers, middleware }
 
 export const schema: OpenAPIV3.Document = {
   openapi: "3.0.1",

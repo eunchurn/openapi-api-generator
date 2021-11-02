@@ -1,6 +1,6 @@
 import { OpenAPIV3 } from "openapi-types";
 
-export const AccessLogs: OpenAPIV3.SchemaObject = {
+export const AccessLogsSuccess: OpenAPIV3.SchemaObject = {
   type: "object",
   properties: {
     id: {

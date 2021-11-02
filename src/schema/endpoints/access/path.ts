@@ -1,13 +1,14 @@
 import { OpenAPIV3 } from "openapi-types";
 
-const accessSchema: OpenAPIV3.PathItemObject = {
+const accessSchema: OpenAPIV3.PathItemObject & { get: { "x-middleware": string[] } } = {
   get: {
     description: "사용자 접속 로그",
     tags: ["Access"],
     operationId: "access",
+    "x-middleware": ["accessMiddleware"],
     parameters: [
       {
-        in: "query",
+        in: "path",
         name: "id",
         schema: {
           type: "string",
@@ -23,7 +24,7 @@ const accessSchema: OpenAPIV3.PathItemObject = {
         content: {
           "application/json": {
             schema: {
-              $ref: "#/components/schemas/AccessLogs",
+              $ref: "#/components/schemas/AccessLogsSuccess",
             },
             example: {
               id: 1,

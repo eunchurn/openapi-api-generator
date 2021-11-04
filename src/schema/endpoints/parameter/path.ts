@@ -1,11 +1,11 @@
 import { OpenAPIV3 } from "openapi-types";
 
-const accessSchema: OpenAPIV3.PathItemObject & { get: { "x-middleware": string[] } } = {
+const paramsSchema: OpenAPIV3.PathItemObject & { get?: { "x-middleware": string[] } } = {
   get: {
-    description: "사용자 접속 로그",
-    tags: ["Access"],
-    operationId: "access",
-    "x-middleware": ["accessMiddleware"],
+    description: "Path parameters",
+    tags: ["Params"],
+    operationId: "params",
+    "x-middleware": ["paramsMiddleware"],
     parameters: [
       {
         in: "path",
@@ -14,7 +14,7 @@ const accessSchema: OpenAPIV3.PathItemObject & { get: { "x-middleware": string[]
           type: "string",
         },
         required: true,
-        description: "사용자 ID",
+        description: "ID",
         example: "1",
       },
     ],
@@ -24,7 +24,7 @@ const accessSchema: OpenAPIV3.PathItemObject & { get: { "x-middleware": string[]
         content: {
           "application/json": {
             schema: {
-              $ref: "#/components/schemas/AccessLogsSuccess",
+              $ref: "#/components/schemas/ParamsSuccess",
             },
             example: {
               id: 1,
@@ -39,4 +39,4 @@ const accessSchema: OpenAPIV3.PathItemObject & { get: { "x-middleware": string[]
   },
 };
 
-export const accessPath = { "/access/{id}": accessSchema }
+export const paramsPath = { "/params/{id}": paramsSchema }

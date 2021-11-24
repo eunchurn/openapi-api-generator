@@ -36,4 +36,4 @@ const bodySchema: OpenAPIV3.PathItemObject & { post: { "x-middleware"?: string[]
   },
 };
 
-export const bodyPath = { "/body": bodySchema }
+export const path = { "/body": bodySchema }

@@ -1,32 +1,31 @@
 import { OpenAPIV3 } from "openapi-types";
 import { securitySchemes } from "./securitySchemes";
-import { paramsPath, ParamsSuccess, params, paramsMiddleware } from "./parameter";
-import { bodyPath, BodyRequest, BodySuccess, body, bodyMiddleware } from "./body";
-import { queryPath, QuerySuccess, query, queryMiddleware} from "./query";
+import * as parameter from "./parameter";
+import * as body from "./body";
+import * as query from "./query";
 
 export const paths = {
-  ...paramsPath,
-  ...bodyPath,
-  ...queryPath,
+  ...parameter.path,
+  ...body.path,
+  ...query.path,
 };
 
 export const schemas = {
-  ParamsSuccess,
-  BodyRequest,
-  BodySuccess,
-  QuerySuccess,
+  ...parameter.schemas,
+  ...body.schemas,
+  ...query.schemas,
 }
 
 export const controllers = {
-  params,
-  body,
-  query,
+  ...parameter.controllers,
+  ...body.controllers,
+  ...query.controllers,
 }
 
 export const middleware = {
-  paramsMiddleware,
-  bodyMiddleware,
-  queryMiddleware
+  ...parameter.middleware,
+  ...body.middleware,
+  ...query.middleware,
 }
 
 export const components: OpenAPIV3.ComponentsObject = {

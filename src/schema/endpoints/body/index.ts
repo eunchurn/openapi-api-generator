@@ -1,4 +1,4 @@
 export * from "./path";
-export * from "./Body";
-export * from "./controller";
-export * from "./middleware";
+export * as schemas from "./Body";
+export * as controllers from "./controller";
+export * as middleware from "./middleware";

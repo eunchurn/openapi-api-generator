@@ -39,4 +39,4 @@ const paramsSchema: OpenAPIV3.PathItemObject & { get?: { "x-middleware": string[
   },
 };
 
-export const paramsPath = { "/params/{id}": paramsSchema }
+export const path = { "/params/{id}": paramsSchema }

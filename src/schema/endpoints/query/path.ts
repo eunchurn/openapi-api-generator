@@ -1,5 +1,5 @@
 import { OpenAPIV3 } from "openapi-types";
-import { QueryRequest } from "./Query";
+import { QueryRequest } from "./QueryRequest";
 
 const querySchema: OpenAPIV3.PathItemObject & { post?: { "x-middleware": string[] } } = {
   post: {
@@ -29,4 +29,4 @@ const querySchema: OpenAPIV3.PathItemObject & { post?: { "x-middleware": string[
   },
 };
 
-export const queryPath = { "/query": querySchema }
+export const path = { "/query": querySchema }

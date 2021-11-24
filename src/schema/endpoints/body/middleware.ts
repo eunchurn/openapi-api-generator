@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import Ajv from "ajv";
-import { BodyRequest } from "./Body";
+import { BodyRequest } from "./schemas";
 
 const ajv = new Ajv();
 

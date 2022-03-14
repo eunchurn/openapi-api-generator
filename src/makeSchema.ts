@@ -3,6 +3,7 @@ import { info, servers, paths, components, controllers, middleware } from "./sch
 import fs from "fs";
 import path from "path";
 import { dump } from "js-yaml";
+import { cloneDeepWith } from "lodash";
 
 export { controllers, middleware }
 
@@ -19,7 +20,10 @@ export const schema: OpenAPIV3.Document = {
   components,
 };
 
-const yml = dump(schema);
+const amendedSchema = omitDeep(schema, ["$id"]);
+
+const yml = dump(amendedSchema);
+
 
 fs.mkdir(path.join(__dirname, "./generated"), { recursive: true }, (err) => {
   if (err) throw err;
@@ -30,3 +34,15 @@ fs.mkdir(path.join(__dirname, "./generated"), { recursive: true }, (err) => {
   fs.writeFileSync(path.join(__dirname, "./generated/api.yml"), yml);
 
 })
+
+function omitDeep(collection: object, excludeKeys: string[]) {
+  function omitFn(value: any) {
+    if (value && typeof value === "object") {
+      excludeKeys.forEach((key) => {
+        delete value[key];
+      });
+    }
+  }
+
+  return cloneDeepWith(collection, omitFn);
+}

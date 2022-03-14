@@ -1,6 +1,7 @@
 import { OpenAPIV3 } from "openapi-types";
 
-export const ParamsSuccess: OpenAPIV3.SchemaObject = {
+export const ParamsSuccess: OpenAPIV3.SchemaObject & { $id: string } = {
+  $id: "#/components/schema/ParamsSuccess",
   type: "object",
   properties: {
     id: {

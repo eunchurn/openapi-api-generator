@@ -37,6 +37,6 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn test --coverage
       - name: Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
       - name: Build Test
         run: yarn build

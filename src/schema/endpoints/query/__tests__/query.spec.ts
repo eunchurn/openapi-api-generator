@@ -1,10 +1,11 @@
 import { query } from "../controllers";
 import { Request, Response } from "express";
+import { jest } from "@jest/globals";
 
 const mockResponse = () => {
   const res = {} as Response;
-  res.status = jest.fn().mockReturnValue(res);
-  res.send = jest.fn().mockReturnValue(res);
+  res.status = jest.fn<typeof res.status>().mockReturnValue(res);
+  res.send = jest.fn<typeof res.send>().mockReturnValue(res);
   return res;
 }
 

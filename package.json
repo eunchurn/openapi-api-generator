@@ -21,7 +21,7 @@
     "@types/jest": "28.1.6",
     "@types/js-yaml": "4.0.5",
     "@types/lodash": "4.14.182",
-    "@types/node": "16.11.45",
+    "@types/node": "16.11.46",
     "@types/swagger-ui-express": "4.1.3",
     "@types/yamljs": "0.2.31",
     "@typescript-eslint/eslint-plugin": "5.31.0",
